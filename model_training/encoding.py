@@ -313,4 +313,19 @@ def encode_test():
 
 
 if __name__ == '__main__':
-    encode_all_moves_and_positions()
+    #encode_all_moves_and_positions()
+
+    positions_and_moves = np.load(f'{RAW_DATA_PATH}/board.npy', allow_pickle=True)
+    positions = positions_and_moves[:, 0]
+    moves = positions_and_moves[:, 1]
+
+    board = chess.Board()
+
+    for move in moves:
+        if move == "b2b1":
+            board.push_uci("b2b1q")
+            print("PEra")
+
+        board.push_uci(move)
+
+    print("ASD")
