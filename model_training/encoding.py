@@ -313,4 +313,4 @@ def encode_test():
 
 
 if __name__ == '__main__':
-    encode_test()
+    encode_all_moves_and_positions()

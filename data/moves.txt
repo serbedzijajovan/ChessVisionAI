@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 e2e4, rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq - 0 1
 c7c6, rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 1
 d2d4, rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq - 0 2
@@ -84,3 +85,5 @@ f8f7, 8/p3KRkp/1p1p4/8/8/2P5/P7/1qb5 b KQkq - 0 42
 g7g6, 8/p3KR1p/1p1p2k1/8/8/2P5/P7/1qb5 w KQkq - 0 42
 f7f6, 8/p3K2p/1p1p1Rk1/8/8/2P5/P7/1qb5 b KQkq - 0 43
 g6g5, 8/p3K2p/1p1p1R2/6k1/8/2P5/P7/1qb5 w KQkq - 0 43
+=======
+>>>>>>> c7f19c9 (WIP)
