@@ -288,3 +288,7 @@ def encode_all_moves_and_positions():
 
 if __name__ == '__main__':
     encode_all_moves_and_positions()
+
+
+    # 'r2qk2r/pp3ppp/2nbpn2/3p1b2/3P1B2/5N2/PPPNBPPP/R2Q1RK1 w kq - 2 9'
+    # 'r2qk2r/pp3ppp/2nbpn2/3p1b2/3P1B2/5N2/PPPNBPPP/R2Q1RK1 b -Qkq - 0 9'
