@@ -31,7 +31,7 @@ def find_next_idx():
     if len(files) == 0:
         return 1
 
-    highest_idx = max(int(f.split("movesAndPositions")[-1].split(".npy")[0]) for f in files)
+    highest_idx = max(int(f.split("moves_and_positions")[-1].split(".npy")[0]) for f in files)
     return highest_idx + 1
 
 
@@ -44,11 +44,9 @@ def save_data(positions, moves):
     moves_array = np.array(moves).reshape(-1, 1)
     positions_and_moves = np.concatenate((positions_array, moves_array), axis=1)
 
-    with file_lock:
-        next_idx = find_next_idx()
-
-        np.save(f"{RAW_DATA_PATH}/movesAndPositions{next_idx}.npy", positions_and_moves)
-        print("Saved successfully")
+    next_idx = find_next_idx()
+    np.save(f"{RAW_DATA_PATH}/moves_and_positions{next_idx}.npy", positions_and_moves)
+    print("Saved successfully")
 
 
 def run_game(num_moves, filename="movesAndPositions1.npy"):

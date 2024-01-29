@@ -5,7 +5,7 @@ import chess
 import numpy as np
 from gym_chess.alphazero.move_encoding import utils
 
-from config import RAW_DATA_PATH, PREPARED_DATA_PATH
+from config import RAW_DATA_PATH, PREPARED_DATA_PATH, DATA_PATH
 
 
 def encode_queen(move: chess.Move) -> Optional[int]:
@@ -258,7 +258,7 @@ def encode_all_moves_and_positions():
     """
     board = chess.Board()
 
-    files = os.listdir(RAW_DATA_PATH)
+    files = sorted(os.listdir(RAW_DATA_PATH))
     for idx, filename in enumerate(files):
         positions_and_moves = np.load(f'{RAW_DATA_PATH}/{filename}', allow_pickle=True)
         positions = positions_and_moves[:, 0]
@@ -286,9 +286,31 @@ def encode_all_moves_and_positions():
         np.save(f'{PREPARED_DATA_PATH}/positions{idx}', np.array(encoded_positions))
 
 
+def encode_test():
+    data = np.loadtxt(f'{DATA_PATH}/moves.txt', delimiter=',', dtype=str)  # Change dtype as needed
+    moves = data[:, 0]
+    positions = data[:, 1]
+
+    board = chess.Board()
+    board.reset()
+
+    encoded_positions = []
+    encoded_moves = []
+
+    for position, move in zip(positions, moves):
+        try:
+            # Encode the move and position
+            encoded_position = encode_board(board)
+            encoded_move = encode_move(move, board)
+
+            encoded_positions.append(encoded_position)
+            encoded_moves.append(encoded_move)
+
+            board.push_uci(move)
+        except:
+            print(f'Move: {move}, Position: {position}')
+            break
+
+
 if __name__ == '__main__':
-    encode_all_moves_and_positions()
-
-
-    # 'r2qk2r/pp3ppp/2nbpn2/3p1b2/3P1B2/5N2/PPPNBPPP/R2Q1RK1 w kq - 2 9'
-    # 'r2qk2r/pp3ppp/2nbpn2/3p1b2/3P1B2/5N2/PPPNBPPP/R2Q1RK1 b -Qkq - 0 9'
+    encode_test()
