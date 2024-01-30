@@ -94,6 +94,21 @@ def extract_positions(fen_file_path):
     return positions
 
 
+def create_and_train_classifier(classifier_name):
+    images, labels = get_training_data()
+    if classifier_name == "ANN":
+        model_path = f'{DATA_PATH}/classificator/ann.keras'
+        classifier = ANNClassifier(model_path)
+    else:
+        model_path = f'{DATA_PATH}/classificator/hog.keras'
+        classifier = HOGClassifier(model_path)
+
+    if not classifier.is_trained():
+        classifier.train(images, labels)
+
+    return classifier
+
+
 def print_summary(classificator, y_pred, y_true):
     accuracy = accuracy_score(y_true, y_pred)
     precision = precision_score(y_true, y_pred, average='macro')
@@ -109,18 +124,8 @@ def print_summary(classificator, y_pred, y_true):
 
 
 if __name__ == '__main__':
-    classifier_name = "ann"
-
-    images, labels = get_training_data()
-    if classifier_name == "ann":
-        model_path = f'{DATA_PATH}/classificator/ann.keras'
-        classifier = ANNClassifier(model_path)
-    else:
-        model_path = f'{DATA_PATH}/classificator/hog.keras'
-        classifier = HOGClassifier(model_path)
-
-    if not classifier.is_trained():
-        classifier.train(images, labels)
+    classifier_name = "ANN"
+    classifier = create_and_train_classifier(classifier_name)
 
     # Path to the folder containing .gif files
     folder_path = f'{DATA_PATH}/classificator-validation'

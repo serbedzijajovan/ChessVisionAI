@@ -164,8 +164,8 @@ def retrieve_best_model_info():
     return best_loss, best_model_path
 
 
-EPOCHS = 20
-LEARNING_RATE = 0.01
+EPOCHS = 40
+LEARNING_RATE = 0.02
 MOMENTUM = 0.9
 
 
