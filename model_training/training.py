@@ -222,7 +222,7 @@ def run_training():
         if avg_vloss < best_validation_loss:
             best_validation_loss = avg_vloss
             if best_loss > best_validation_loss:
-                model_path = f'model_{timestamp}_{epoch}'
+                model_path = f'{SAVED_MODELS_PATH}/model_{timestamp}_{epoch}'
                 torch.save(model.state_dict(), model_path)
                 save_best_model(best_validation_loss, model_path)
 
