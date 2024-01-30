@@ -141,7 +141,7 @@ def save_best_model(validation_loss, best_model_path):
     # Save the best model's validation loss and file path
     with open(best_model_info_path, "w") as f:
         f.write(f"{validation_loss}\n")
-        f.write(best_model_path)
+        f.write(best_model_path.split('/')[-1])
 
     print(f"NEW BEST MODEL FOUND WITH LOSS: {validation_loss}")
 
@@ -164,7 +164,7 @@ def retrieve_best_model_info():
     return best_loss, best_model_path
 
 
-EPOCHS = 10
+EPOCHS = 20
 LEARNING_RATE = 0.01
 MOMENTUM = 0.9
 

@@ -14,10 +14,10 @@ class ChessModel(torch.nn.Module):
 
         # Model architecture
         self.activation = nn.ReLU()
-        self.linear1 = nn.Linear(self.input_size, 10000)
-        self.linear2 = nn.Linear(10000, 10000)
-        self.linear3 = nn.Linear(10000, 10000)
-        self.linear4 = nn.Linear(10000, 200)
+        self.linear1 = nn.Linear(self.input_size, 1000)
+        self.linear2 = nn.Linear(1000, 1000)
+        self.linear3 = nn.Linear(1000, 1000)
+        self.linear4 = nn.Linear(1000, 200)
         self.linear5 = nn.Linear(200, self.output_size)
         self.softmax = nn.Softmax(dim=1)
 
