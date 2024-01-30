@@ -132,16 +132,16 @@ def save_best_model(validation_loss, best_model_path):
     Saves the information about the best model to a file.
 
     Args:
-        validation_loss: The validation loss of the best model.
+        validation_loss: The classificator-validation loss of the best model.
         best_model_path: The file path to the best model.
     """
     # Path to the file storing the best model information
     best_model_info_path = f"{SAVED_MODELS_PATH}/bestModel.txt"
 
-    # Save the best model's validation loss and file path
+    # Save the best model's classificator-validation loss and file path
     with open(best_model_info_path, "w") as f:
         f.write(f"{validation_loss}\n")
-        f.write(best_model_path)
+        f.write(best_model_path.split('/')[-1])
 
     print(f"NEW BEST MODEL FOUND WITH LOSS: {validation_loss}")
 
@@ -164,8 +164,8 @@ def retrieve_best_model_info():
     return best_loss, best_model_path
 
 
-EPOCHS = 10
-LEARNING_RATE = 0.01
+EPOCHS = 40
+LEARNING_RATE = 0.02
 MOMENTUM = 0.9
 
 
@@ -222,7 +222,7 @@ def run_training():
         if avg_vloss < best_validation_loss:
             best_validation_loss = avg_vloss
             if best_loss > best_validation_loss:
-                model_path = f'model_{timestamp}_{epoch}'
+                model_path = f'{SAVED_MODELS_PATH}/model_{timestamp}_{epoch}'
                 torch.save(model.state_dict(), model_path)
                 save_best_model(best_validation_loss, model_path)
 

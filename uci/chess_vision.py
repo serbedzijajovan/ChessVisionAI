@@ -99,6 +99,3 @@ if __name__ == "__main__":
             print(board)
         elif args[0] == "quit":
             break
-
-# ['/Users/jovanserbedzija/Developer/projects/ChessVisionAI/uci', '/Users/jovanserbedzija/Developer/projects/ChessVisionAI', '/Applications/PyCharm.app/Contents/plugins/python/helpers/pycharm_display', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload', '/Users/jovanserbedzija/Developer/projects/ChessVisionAI/.venv/lib/python3.11/site-packages', '/Applications/PyCharm.app/Contents/plugins/python/helpers/pycharm_matplotlib_backend']
-# ['/Users/jovanserbedzija/Developer/projects/ChessVisionAI/uci', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python311.zip', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11', '/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload', '/Users/jovanserbedzija/Developer/projects/ChessVisionAI/.venv/lib/python3.11/site-packages']
