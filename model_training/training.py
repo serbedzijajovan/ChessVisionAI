@@ -132,13 +132,13 @@ def save_best_model(validation_loss, best_model_path):
     Saves the information about the best model to a file.
 
     Args:
-        validation_loss: The validation loss of the best model.
+        validation_loss: The classificator-validation loss of the best model.
         best_model_path: The file path to the best model.
     """
     # Path to the file storing the best model information
     best_model_info_path = f"{SAVED_MODELS_PATH}/bestModel.txt"
 
-    # Save the best model's validation loss and file path
+    # Save the best model's classificator-validation loss and file path
     with open(best_model_info_path, "w") as f:
         f.write(f"{validation_loss}\n")
         f.write(best_model_path.split('/')[-1])

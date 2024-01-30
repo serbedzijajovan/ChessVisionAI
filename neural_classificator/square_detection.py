@@ -28,14 +28,14 @@ def find_square_contours(img, image_bin, min_area=6000, max_area=10000):
 
 
 def process_frame(frame):
-    """Processes the frame to extract square regions."""
+    """Processes the frame in RGB to extract square regions."""
     # Add a black border to the frame and convert to grayscale
     frame_with_border = cv2.copyMakeBorder(frame, 1, 1, 1, 1, cv2.BORDER_CONSTANT, value=[0, 0, 0])
-    gray = cv2.cvtColor(frame_with_border, cv2.COLOR_BGR2GRAY)
+    frame_gray = cv2.cvtColor(frame_with_border, cv2.COLOR_RGB2GRAY)
 
     # Apply gradient morphology to highlight edges
     kernel = np.ones((3, 3), np.uint8)
-    gradient = cv2.morphologyEx(gray, cv2.MORPH_GRADIENT, kernel)
+    gradient = cv2.morphologyEx(frame_gray, cv2.MORPH_GRADIENT, kernel)
 
     # Threshold the image to create a binary image
     _, thresh = cv2.threshold(gradient, 70, 255, cv2.THRESH_BINARY_INV)
